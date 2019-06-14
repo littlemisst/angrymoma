@@ -1,0 +1,643 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://Reusable/reusable_WORLD.gd" type="Script" id=1]
+[ext_resource path="res://Reusable/sprites and sounds/house.png" type="Texture" id=2]
+[ext_resource path="res://Reusable/sprites and sounds/grass.png" type="Texture" id=3]
+[ext_resource path="res://moma_body.gd" type="Script" id=4]
+[ext_resource path="res://Reusable/sprites and sounds/happymoma.png" type="Texture" id=5]
+[ext_resource path="res://Reusable/sprites and sounds/angrymoma.png" type="Texture" id=6]
+[ext_resource path="res://Reusable/sprites and sounds/collect.wav" type="AudioStream" id=7]
+[ext_resource path="res://Reusable/sprites and sounds/grunt.wav" type="AudioStream" id=8]
+[ext_resource path="res://collectibles.wav" type="AudioStream" id=9]
+[ext_resource path="res://Reusable/sprites and sounds/life.wav" type="AudioStream" id=10]
+[ext_resource path="res://Reusable/font_to_use.tres" type="DynamicFont" id=11]
+[ext_resource path="res://Reusable/04B_30__.TTF" type="DynamicFontData" id=12]
+[ext_resource path="res://Reusable/sprites and sounds/unheart.png" type="Texture" id=13]
+[ext_resource path="res://Reusable/heart.png" type="Texture" id=14]
+[ext_resource path="res://Reusable/sprites and sounds/buttons.png" type="Texture" id=15]
+[ext_resource path="res://Reusable/reusable_background.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Reusable/reusable_game_mode_3.gd" type="Script" id=17]
+[ext_resource path="res://congrats.tscn" type="PackedScene" id=18]
+[ext_resource path="res://gameover.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Achievements/recyclable_chicken-2.png.png" type="Texture" id=20]
+[ext_resource path="res://Reusable/trophy_2.gd" type="Script" id=21]
+[ext_resource path="res://Achievements/2nd-1.png.png" type="Texture" id=22]
+[ext_resource path="res://slide_down.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Home.tscn" type="PackedScene" id=24]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "normal",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "angry",
+"speed": 5.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 17.0974, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 13.9247, 20.1452 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 992.33, 24.5608 )
+
+[sub_resource type="DynamicFont" id=5]
+
+size = 40
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 12 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="SpriteFrames" id=6]
+
+animations = [ {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "empty",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "life",
+"speed": 5.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="SpriteFrames" id=7]
+
+animations = [ {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "empty",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "life",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=8]
+
+animations = [ {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "empty",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "life",
+"speed": 5.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="DynamicFont" id=9]
+
+size = 40
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 12 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="RectangleShape2D" id=10]
+
+custom_solver_bias = 0.0
+extents = Vector2( 39.4337, 30.4375 )
+
+[sub_resource type="CircleShape2D" id=11]
+
+custom_solver_bias = 0.0
+radius = 22.2736
+
+[node name="WORLD" type="Node" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="decors" type="Node" parent="." index="0"]
+
+[node name="house" type="Sprite" parent="decors" index="0"]
+
+position = Vector2( 240, 450 )
+scale = Vector2( 0.48255, 0.460239 )
+texture = ExtResource( 2 )
+
+[node name="grass" type="Sprite" parent="decors" index="1"]
+
+position = Vector2( 67.7268, 561.886 )
+scale = Vector2( 0.230404, 0.219751 )
+texture = ExtResource( 3 )
+
+[node name="grass2" type="Sprite" parent="decors" index="2"]
+
+position = Vector2( 194.881, 562.102 )
+scale = Vector2( 0.230404, 0.219751 )
+texture = ExtResource( 3 )
+
+[node name="grass3" type="Sprite" parent="decors" index="3"]
+
+position = Vector2( 321.979, 562.129 )
+scale = Vector2( 0.230404, 0.219751 )
+texture = ExtResource( 3 )
+
+[node name="grass5" type="Sprite" parent="decors" index="4"]
+
+position = Vector2( 448.162, 561.95 )
+scale = Vector2( 0.230404, 0.219751 )
+texture = ExtResource( 3 )
+
+[node name="moma_body" type="KinematicBody2D" parent="." index="1"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 4 )
+_sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="momasprite" type="AnimatedSprite" parent="moma_body" index="0"]
+
+position = Vector2( 161.909, 544.05 )
+scale = Vector2( 0.156561, 0.156561 )
+frames = SubResource( 1 )
+animation = "normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="moma_body" index="1"]
+
+position = Vector2( 160.399, 562.195 )
+scale = Vector2( 1.25843, 1.25843 )
+shape = SubResource( 2 )
+
+[node name="moma_area" type="Area2D" parent="moma_body" index="2"]
+
+position = Vector2( 156.831, 548.401 )
+scale = Vector2( 1.25843, 1.25843 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="shapefor2d" type="CollisionShape2D" parent="moma_body/moma_area" index="0"]
+
+position = Vector2( 1.89383, -0.631256 )
+shape = SubResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="moma_body/moma_area" index="1"]
+
+visible = false
+position = Vector2( 77.5616, -191.973 )
+scale = Vector2( 6.2042, 7.28659 )
+anchor_mode = 0
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = 0
+limit_top = -10000000
+limit_right = 496
+limit_bottom = 582
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Limit" ]
+
+[node name="collect_sound" type="AudioStreamPlayer" parent="moma_body" index="3"]
+
+stream = ExtResource( 7 )
+volume_db = 1.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="bad_stuff_sound" type="AudioStreamPlayer2D" parent="moma_body" index="4"]
+
+stream = ExtResource( 8 )
+volume_db = 1.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="collectibles" type="AudioStreamPlayer2D" parent="moma_body" index="5"]
+
+stream = ExtResource( 9 )
+volume_db = 5.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="life" type="AudioStreamPlayer" parent="moma_body" index="6"]
+
+stream = ExtResource( 10 )
+volume_db = 1.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="2"]
+
+editor/display_folded = true
+position = Vector2( 247.415, 585.53 )
+scale = Vector2( 7.84498, 0.295632 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="1" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+
+position = Vector2( 0.114056, 1.40686 )
+scale = Vector2( 0.0325041, 0.809282 )
+shape = SubResource( 4 )
+
+[node name="game_timer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 120.0
+one_shot = true
+autostart = true
+
+[node name="hud" type="CanvasLayer" parent="." index="4"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="total" type="Label" parent="hud" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 18.0
+margin_top = 10.0
+margin_right = 109.0
+margin_bottom = 79.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 0.0313726, 0.270588, 0.431373, 1 )
+text = "items 
+left:"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Material", "Visibility", "custom_colors", "custom_fonts" ]
+
+[node name="MarginContainer" type="MarginContainer" parent="hud" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_left = 98.0
+margin_top = 10.0
+margin_right = -318.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="hud/MarginContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_right = 80.0
+margin_bottom = 53.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="score_label" type="Label" parent="hud/MarginContainer/HBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 6.0
+margin_right = 64.0
+margin_bottom = 47.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.0338745, 0.274331, 0.433594, 1 )
+text = "10"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Grow Direction", "Material", "Visibility", "custom_colors", "custom_fonts", "custom_styles" ]
+
+[node name="life" type="MarginContainer" parent="hud" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 10.0
+margin_top = 60.0
+margin_right = 153.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="heart_0" type="AnimatedSprite" parent="hud/life" index="0"]
+
+position = Vector2( 30.3873, 23.6425 )
+scale = Vector2( 0.0637087, 0.0637087 )
+frames = SubResource( 6 )
+animation = "life"
+playing = true
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
+
+[node name="heart_1" type="AnimatedSprite" parent="hud/life" index="1"]
+
+position = Vector2( 73.3873, 23.6425 )
+scale = Vector2( 0.0637087, 0.0637087 )
+frames = SubResource( 7 )
+animation = "life"
+
+[node name="heart_2" type="AnimatedSprite" parent="hud/life" index="2"]
+
+position = Vector2( 115.387, 23.6425 )
+scale = Vector2( 0.0637087, 0.0637087 )
+frames = SubResource( 8 )
+animation = "life"
+
+[node name="timer" type="MarginContainer" parent="hud" index="3"]
+
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -229.0
+margin_top = 111.0
+margin_right = -109.0
+margin_bottom = 152.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="time" type="Label" parent="hud/timer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_right = 120.0
+margin_bottom = 41.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "120"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="buttons" type="CanvasLayer" parent="." index="5"]
+
+editor/display_folded = true
+layer = 2
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="left" type="TouchScreenButton" parent="buttons" index="0"]
+
+position = Vector2( 1, 110 )
+scale = Vector2( 0.969739, 1.01375 )
+normal = ExtResource( 15 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "ui_left"
+visibility_mode = 0
+_sections_unfolded = [ "Visibility" ]
+
+[node name="right" type="TouchScreenButton" parent="buttons" index="1"]
+
+position = Vector2( 495.526, 581.118 )
+rotation = 3.13839
+scale = Vector2( 0.989246, 1.00208 )
+normal = ExtResource( 15 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "ui_right"
+visibility_mode = 0
+
+[node name="reusable_background" parent="." index="6" instance=ExtResource( 16 )]
+
+[node name="area_restrictions_1" type="Area2D" parent="." index="7"]
+
+editor/display_folded = true
+position = Vector2( 546, 280 )
+scale = Vector2( 1.75, 9.69198 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="1" type="CollisionShape2D" parent="area_restrictions_1" index="0"]
+
+position = Vector2( 11.2712, 1.25929 )
+scale = Vector2( 1.0695, 1 )
+shape = SubResource( 10 )
+
+[node name="area_restrictions_2" type="Area2D" parent="." index="8"]
+
+editor/display_folded = true
+position = Vector2( -47.5471, 290 )
+scale = Vector2( 1.51414, 9.69198 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="2" type="CollisionShape2D" parent="area_restrictions_2" index="0"]
+
+position = Vector2( -21.7637, 0.686449 )
+scale = Vector2( 1.34463, 1 )
+shape = SubResource( 10 )
+
+[node name="platforms" type="Node2D" parent="." index="9"]
+
+position = Vector2( 70, 540 )
+script = ExtResource( 17 )
+
+[node name="Win_Menu" parent="." index="10" instance=ExtResource( 18 )]
+
+layer = 2
+
+[node name="GameOver_Menu" parent="." index="11" instance=ExtResource( 19 )]
+
+layer = 2
+
+[node name="chicken" type="Area2D" parent="." index="12"]
+
+editor/display_folded = true
+position = Vector2( 40, 390 )
+scale = Vector2( 0.8125, 0.8125 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="chicken" index="0"]
+
+position = Vector2( -6.15385, 1.23077 )
+scale = Vector2( 0.0820369, 0.0820369 )
+texture = ExtResource( 20 )
+_sections_unfolded = [ "Animation", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chicken" index="1"]
+
+position = Vector2( -3.86491, 4.58932 )
+shape = SubResource( 11 )
+
+[node name="trophy_2" type="CanvasLayer" parent="." index="13"]
+
+editor/display_folded = true
+layer = 1
+offset = Vector2( 0, -430 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, -430 )
+script = ExtResource( 21 )
+
+[node name="select" type="TouchScreenButton" parent="trophy_2" index="0"]
+
+position = Vector2( 0, -71.2088 )
+scale = Vector2( 0.5, 0.5 )
+normal = ExtResource( 22 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "select"
+visibility_mode = 0
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="slide_down" parent="trophy_2" index="1" instance=ExtResource( 23 )]
+
+[node name="Home" parent="." index="14" instance=ExtResource( 24 )]
+
+[connection signal="game_over" from="moma_body" to="GameOver_Menu" method="reuse_GameOver"]
+
+[connection signal="trophy_appear" from="moma_body" to="trophy_2" method="trophy_appear_2"]
+
+[connection signal="area_entered" from="moma_body/moma_area" to="moma_body" method="moma_area_entered"]
+
+[connection signal="timeout" from="game_timer" to="moma_body" method="_on_game_timer_timeout"]
+
+[connection signal="area_entered" from="area_restrictions_1" to="moma_body" method="_on_area_restrictions_1_area_entered"]
+
+[connection signal="area_entered" from="area_restrictions_2" to="moma_body" method="_on_area_restrictions_2_area_entered"]
+
+[connection signal="area_entered" from="chicken" to="." method="chicken_area_entered"]
+
+[connection signal="congrats_window" from="trophy_2" to="Win_Menu" method="reuse_youWin"]
+
+

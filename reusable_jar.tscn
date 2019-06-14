@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Reusable/reusable_banana_peel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://jar.gd" type="Script" id=2]
+[ext_resource path="res://Reusable/REUSABLE/jar.png" type="Texture" id=3]
+
+[node name="jar" index="0" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+
+position = Vector2( 11.3644, 8.59299 )
+scale = Vector2( 0.0619418, 0.054101 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 10.4094, 7.86795 )
+
+

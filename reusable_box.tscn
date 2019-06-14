@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Reusable/reusable_banana_peel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://box.gd" type="Script" id=2]
+[ext_resource path="res://Reusable/REUSABLE/box.png" type="Texture" id=3]
+
+[node name="box" instance=ExtResource( 1 )]
+
+position = Vector2( 256.718, 411.913 )
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+
+position = Vector2( 6.62333, -11.3835 )
+scale = Vector2( 0.14661, 0.107067 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 4.60083, -7.87811 )
+
+

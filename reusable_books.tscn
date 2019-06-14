@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Reusable/reusable_banana_peel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://books.gd" type="Script" id=2]
+[ext_resource path="res://Reusable/REUSABLE/books.png" type="Texture" id=3]
+
+[node name="books" index="0" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+
+position = Vector2( 9.43686, 9.60178 )
+scale = Vector2( 0.0743761, 0.0743761 )
+texture = ExtResource( 3 )
+
+

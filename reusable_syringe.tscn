@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Reusable/reusable_banana_peel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Reusable/NON-REUSABLE/syringe.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends \"res://Reusable/reusable_banana_peel.gd\""
+
+[node name="syringe" index="0" instance=ExtResource( 1 )]
+
+script = SubResource( 1 )
+
+[node name="Sprite" parent="." index="0"]
+
+position = Vector2( 9.00734, 12.5223 )
+scale = Vector2( 0.0727044, 0.0888253 )
+texture = ExtResource( 2 )
+
+
