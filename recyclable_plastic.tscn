@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Recyclable/recyclable_scenes/recyclable_apple.tscn" type="PackedScene" id=1]
+[ext_resource path="res://recyclable_plastic.gd" type="Script" id=2]
+[ext_resource path="res://Recyclable/recyclable_sprites/recyclable_plastic.png" type="Texture" id=3]
+
+[node name="recyclable_plastic" index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 325.897, -740.254 )
+script = ExtResource( 2 )
+
+[node name="recyclable_apple_sprite" parent="." index="0"]
+
+position = Vector2( -1.72972, -7.72974 )
+texture = ExtResource( 3 )
+
+

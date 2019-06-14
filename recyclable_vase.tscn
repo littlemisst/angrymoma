@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Recyclable/recyclable_scenes/recyclable_apple.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Recyclable/recyclable_sprites/recyclable_vase.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends \"res://Recyclable/recyclable_scripts/recyclable_apple.gd\"
+
+
+func _process(delta):
+	velocity.y = get_random_number(30, 5)
+
+	translate(velocity * delta)
+"
+
+[node name="recyclable_vase" instance=ExtResource( 1 )]
+
+position = Vector2( 380.34, -202.034 )
+script = SubResource( 1 )
+
+[node name="recyclable_apple_sprite" parent="." index="0"]
+
+position = Vector2( -1.72974, -10.7297 )
+texture = ExtResource( 2 )
+
+

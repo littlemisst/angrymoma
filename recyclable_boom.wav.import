@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/recyclable_boom.wav-fca6857dcf6f2aa0eb2e6feebf34c384.sample"
+
+[deps]
+
+source_file="res://Recyclable/recyclable_sounds/recyclable_boom.wav"
+dest_files=[ "res://.import/recyclable_boom.wav-fca6857dcf6f2aa0eb2e6feebf34c384.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

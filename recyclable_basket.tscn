@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Recyclable/recyclable_scripts/recyclable_basket.gd" type="Script" id=1]
+[ext_resource path="res://Recyclable/recyclable_sprites/New Piskel-2.png (4).png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 13.4852, 5.86797 )
+
+[node name="recyclable_basket" type="Area2D"]
+
+position = Vector2( 250.067, 471.475 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+
+[node name="recyclable_basket" type="Sprite" parent="." index="0"]
+
+position = Vector2( 0.742321, 7.47347 )
+scale = Vector2( 0.326379, 0.326379 )
+texture = ExtResource( 2 )
+
+[node name="recyclable_basket_collisionshape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 1.08451, 6.28015 )
+scale = Vector2( 1.75151, 2.40734 )
+shape = SubResource( 1 )
+
+
