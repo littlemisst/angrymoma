@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Reduce/Script/reduceQuestion.gd" type="Script" id=1]
+
+[node name="reduceQuestionHolder" type="Node"]
+
+[node name="reducequestion1" type="Node" parent="." index="0"]
+
+script = ExtResource( 1 )
+reduceQuestion = "To save electricity, turn off all the appliances before leaving home."
+answer = true
+
+[node name="reducequestion2" type="Node" parent="." index="1"]
+
+script = ExtResource( 1 )
+reduceQuestion = "Donation does not prevent usable goods from going into landfills."
+answer = false
+
+[node name="reducequestion3" type="Node" parent="." index="2"]
+
+script = ExtResource( 1 )
+reduceQuestion = "Riding on a car can reduce carbon footprint."
+answer = false
+
+[node name="reducequestion4" type="Node" parent="." index="3"]
+
+script = ExtResource( 1 )
+reduceQuestion = "You can reduce your water usage by shutting off the water while you brush your teeth and taking shorter showers."
+answer = true
+
+[node name="reducequestion5" type="Node" parent="." index="4"]
+
+script = ExtResource( 1 )
+reduceQuestion = "It is better to use a reusable bottle or flask for your drinks instead of cartons or cans."
+answer = true
+
+[node name="reducequestion6" type="Node" parent="." index="5"]
+
+script = ExtResource( 1 )
+reduceQuestion = "When you reduce, you use an item more."
+answer = false
+
+[node name="reducequestion7" type="Node" parent="." index="6"]
+
+script = ExtResource( 1 )
+reduceQuestion = "The best way to manage waste is to avoid it in the first place."
+answer = true
+
+[node name="reducequestion8" type="Node" parent="." index="7"]
+
+script = ExtResource( 1 )
+reduceQuestion = "Waste reduction efforts need to be costly and time-consuming to implement. "
+answer = false
+
+[node name="reducequestion9" type="Node" parent="." index="8"]
+
+script = ExtResource( 1 )
+reduceQuestion = "Less office waste doesn’t mean less trash in landfills."
+answer = false
+
+[node name="reducequestion10" type="Node" parent="." index="9"]
+
+script = ExtResource( 1 )
+reduceQuestion = "Maintaining and repairing products, like clothes, tires and appliances can reduce waste."
+answer = true
+
+

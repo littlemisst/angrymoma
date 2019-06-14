@@ -1,0 +1,485 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://Reduce/Script/reduceControlNode.gd" type="Script" id=1]
+[ext_resource path="res://Reduce/True_and_false_buttons/TRUE_BUTTON.png" type="Texture" id=2]
+[ext_resource path="res://Reduce/True_and_false_buttons/FALSE_BUTTON.png" type="Texture" id=3]
+[ext_resource path="res://Reduce/True_and_false_buttons/violet-1.png.png" type="Texture" id=4]
+[ext_resource path="res://Reduce/font/04B_30__.TTF" type="DynamicFontData" id=5]
+[ext_resource path="res://Reduce/True_and_false_buttons/buttondesign.png" type="Texture" id=6]
+[ext_resource path="res://Reduce/Scenes/reduceBackgroudLayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Reduce/reduce_animations/falseSlide.tres" type="Animation" id=8]
+[ext_resource path="res://Reduce/reduce_animations/trueSlide.tres" type="Animation" id=9]
+[ext_resource path="res://Reduce/Scenes/reduceQuestionList.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Reduce/True_and_false_buttons/pink clone-1.png (1).png" type="Texture" id=11]
+[ext_resource path="res://Reduce/sounds/correct.wav" type="AudioStream" id=12]
+[ext_resource path="res://Reduce/sounds/error.wav" type="AudioStream" id=13]
+[ext_resource path="res://collectibles.wav" type="AudioStream" id=14]
+[ext_resource path="res://gameover.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Reduce/Scenes/Win_Menu2.gd" type="Script" id=16]
+[ext_resource path="res://Reusable/sprites and sounds/next_level.wav" type="AudioStream" id=17]
+[ext_resource path="res://Title Screen Buttons/congrats.png" type="Texture" id=18]
+[ext_resource path="res://Title Screen Buttons/reusable_continue.png" type="Texture" id=19]
+[ext_resource path="res://quit.png" type="Texture" id=20]
+[ext_resource path="res://Reduce/Scenes/trophy_1.gd" type="Script" id=21]
+[ext_resource path="res://Achievements/1-1.png.png" type="Texture" id=22]
+[ext_resource path="res://slide_down.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Home.tscn" type="PackedScene" id=24]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 14
+use_mipmaps = true
+use_filter = false
+font_data = ExtResource( 5 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 20
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 5 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 20
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 5 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 30
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 5 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "for_win"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 596 ), Vector2( 0, 0 ) ]
+}
+
+[node name="reduceNode" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+questionTextPath = NodePath("questionText")
+trueAnswerPath = NodePath("answerLayer/trueAnswer")
+falseAnswerPath = NodePath("answerLayer/falseAnswer")
+animatorPath = NodePath("reduce_animator")
+timerPath = NodePath("reduceTimer")
+questionHolderPath = NodePath("reduceQuestionHolder")
+
+[node name="buttonLayer" type="CanvasLayer" parent="." index="0"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="trueButton" type="TouchScreenButton" parent="buttonLayer" index="0"]
+
+position = Vector2( 15.0881, 221.072 )
+scale = Vector2( 0.840353, 0.887885 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 2 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "true"
+visibility_mode = 0
+_sections_unfolded = [ "Margin", "Material", "Pause", "Rect", "Textures", "Transform", "Visibility" ]
+
+[node name="falseButton" type="TouchScreenButton" parent="buttonLayer" index="1"]
+
+position = Vector2( 226.587, 222.807 )
+scale = Vector2( 0.838978, 0.869707 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 3 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "false"
+visibility_mode = 0
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "Textures", "Transform" ]
+
+[node name="violet-1.png" type="Sprite" parent="." index="1"]
+
+position = Vector2( 215.859, 136.53 )
+scale = Vector2( 0.359527, 0.293236 )
+texture = ExtResource( 4 )
+
+[node name="questionText" type="Label" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 70.0
+margin_top = 105.0
+margin_right = 422.0
+margin_bottom = 228.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "QUESTIONS WILL BE DISPLAYED HERE"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Rect", "Visibility", "custom_colors", "custom_fonts", "custom_styles" ]
+
+[node name="answerLayer" type="CanvasLayer" parent="." index="3"]
+
+layer = 0
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="trueBckgrnd" type="Sprite" parent="answerLayer" index="0"]
+
+position = Vector2( 148.036, 360.905 )
+scale = Vector2( 0.65928, 0.693895 )
+texture = ExtResource( 6 )
+
+[node name="falseBckgrnd" type="Sprite" parent="answerLayer" index="1"]
+
+position = Vector2( 360.212, 359.802 )
+scale = Vector2( 0.667526, 0.695215 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="trueAnswer" type="Label" parent="answerLayer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 49.0
+margin_top = 264.0
+margin_right = 245.0
+margin_bottom = 454.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Test"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "Rect", "Visibility", "custom_colors", "custom_fonts" ]
+
+[node name="falseAnswer" type="Label" parent="answerLayer" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 257.0
+margin_top = 261.0
+margin_right = 455.0
+margin_bottom = 450.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Test"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Focus", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_fonts", "custom_styles" ]
+
+[node name="ScoreEachLayer" type="CanvasLayer" parent="." index="4"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="currentScore" type="Label" parent="ScoreEachLayer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 17.0
+margin_top = 25.0
+margin_right = 123.0
+margin_bottom = 69.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Material", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="reduceBackground" parent="." index="5" instance=ExtResource( 7 )]
+
+layer = -1
+
+[node name="reduce_animator" type="AnimationPlayer" parent="." index="6"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/falseSlide = ExtResource( 8 )
+anims/trueSlide = ExtResource( 9 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
+
+[node name="reduceTimer" type="Timer" parent="." index="7"]
+
+process_mode = 1
+wait_time = 1.5
+one_shot = true
+autostart = false
+
+[node name="reduceQuestionHolder" parent="." index="8" instance=ExtResource( 10 )]
+
+[node name="scoreSprite" type="Sprite" parent="." index="9"]
+
+position = Vector2( 104.525, 91.5064 )
+scale = Vector2( 0.445757, 0.40393 )
+texture = ExtResource( 11 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="correct_answer" type="AudioStreamPlayer2D" parent="." index="10"]
+
+stream = ExtResource( 12 )
+volume_db = 1.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+_sections_unfolded = [ "Pause" ]
+
+[node name="wrong_answer" type="AudioStreamPlayer2D" parent="." index="11"]
+
+stream = ExtResource( 13 )
+volume_db = 1.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="collectibles" type="AudioStreamPlayer2D" parent="." index="12"]
+
+stream = ExtResource( 14 )
+volume_db = 5.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="GameOver_Menu" parent="." index="13" instance=ExtResource( 15 )]
+
+pause_mode = 2
+layer = 100
+_sections_unfolded = [ "Pause" ]
+
+[node name="Win_Menu2" type="CanvasLayer" parent="." index="14"]
+
+layer = 10
+offset = Vector2( 0, 596 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 596 )
+script = ExtResource( 16 )
+
+[node name="congrats_player" type="AudioStreamPlayer" parent="Win_Menu2" index="0"]
+
+stream = ExtResource( 17 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="MarginContainer" type="MarginContainer" parent="Win_Menu2" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 59.0
+margin_top = 102.0
+margin_right = 417.0
+margin_bottom = 452.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="TextureRect" type="TextureRect" parent="Win_Menu2/MarginContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_right = 358.0
+margin_bottom = 350.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 18 )
+stretch_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Win_Menu2/MarginContainer/TextureRect" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 83.0
+margin_top = 118.0
+margin_right = 230.0
+margin_bottom = 278.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="continue" type="TouchScreenButton" parent="Win_Menu2/MarginContainer/TextureRect/VBoxContainer" index="0"]
+
+normal = ExtResource( 19 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "continue"
+visibility_mode = 0
+
+[node name="quit" type="TouchScreenButton" parent="Win_Menu2/MarginContainer/TextureRect/VBoxContainer" index="1"]
+
+position = Vector2( 0, 75 )
+normal = ExtResource( 20 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "quit"
+visibility_mode = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Win_Menu2" index="2"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/for_win = SubResource( 5 )
+blend_times = [  ]
+
+[node name="trophy_1" type="CanvasLayer" parent="." index="15"]
+
+layer = 1
+offset = Vector2( 0, -420 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, -420 )
+script = ExtResource( 21 )
+
+[node name="select" type="TouchScreenButton" parent="trophy_1" index="0"]
+
+position = Vector2( -2.78955, -78.1063 )
+scale = Vector2( 0.491467, 0.491467 )
+normal = ExtResource( 22 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "select"
+visibility_mode = 0
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="slide_down" parent="trophy_1" index="1" instance=ExtResource( 23 )]
+
+[node name="Home" parent="." index="16" instance=ExtResource( 24 )]
+
+[connection signal="game_over" from="." to="GameOver_Menu" method="reduce_gameOver"]
+
+[connection signal="trophy_appear" from="." to="trophy_1" method="trophy_appear"]
+
+[connection signal="timeout" from="reduceTimer" to="." method="_on_reduceTimer_timeout"]
+
+[connection signal="you_win" from="trophy_1" to="Win_Menu2" method="reduce_you_win"]
+
+

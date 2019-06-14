@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/correct.wav-45effdd206e2c24e8c02c042bac3130e.sample"
+
+[deps]
+
+source_file="res://Reduce/sounds/correct.wav"
+dest_files=[ "res://.import/correct.wav-45effdd206e2c24e8c02c042bac3130e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
